@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# C/C++
+*.exe
+*.o
+*.out
+
+# JavaScript/Node.js
+node_modules/
+*.log
+
+# VS Code
+.vscode/
+
+# Miscellaneous
+*.tmp
+*.bak

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS raizes quadradas e lim superior</title>
+</head>
+<body>
+    <h3>Exercício de Programação em JavaScript</h3>
+    <p>Calcule e exiba os números e as suas raízes quadradas.</p>
+
+    <label>Limite inferior: 
+        <input type="number" id="lowerLimit" value="2" min="0">
+    </label>
+    <br><br>
+    <label>Limite superior: 
+        <input type="number" id="upperLimit" value="59" min="0">
+    </label>
+    <br><br>
+    <button onclick="printSqrtValues1()">Print SQRT values1</button>
+    <button onclick="displayValues()">Print SQRT values2</button>
+    <div id="result"></div>
+
+    <script>
+        function printSqrtValues1() {
+            let lower = parseInt(document.getElementById("lowerLimit").value);
+            let upper = parseInt(document.getElementById("upperLimit").value);
+            let result = "";
+            for (let i = lower; i <= upper; i++) {
+                result += `${i} | ${Math.sqrt(i).toFixed(6)}\n`;
+            }
+            alert(result);
+        }
+
+        function displayValues() {
+            let lower = parseInt(document.getElementById("lowerLimit").value);
+            let upper = parseInt(document.getElementById("upperLimit").value);
+            let result = "";
+            for (let i = lower; i <= upper; i++) {
+                result += `${i} | ${Math.sqrt(i).toFixed(6)}<br>`;
+            }
+            document.getElementById("result").innerHTML = result;
+        }
+    </script>
+</body>
+</html>

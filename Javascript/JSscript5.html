@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML, CSS and JavaScript - Popups</title>
+    <style>
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 2px solid black;
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+        }
+
+        button {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Programming with HTML, CSS and JavaScript, all together!</h3>
+
+    <button onclick="openPopup('popup1')">Abrir Popup 1</button>
+    <button onclick="openPopup('popup2')">Abrir Popup 2</button>
+
+    <div id="overlay1" class="overlay"></div>
+    <div id="popup1" class="popup">
+        <span class="close-btn" onclick="closePopup('popup1')">[X]</span>
+        <p>Exemplo de popup com o elemento div.<br>Este pop-up não pode ser bloqueado.</p>
+    </div>
+
+    <div id="overlay2" class="overlay"></div>
+    <div id="popup2" class="popup">
+        <span class="close-btn" onclick="closePopup('popup2')">[X]</span>
+        <p>
+            Exemplo de popup com o elemento div.
+            <br>
+            Este pop-up não pode ser bloqueado.
+            <br>
+            Fecha após 5 segundos.
+        </p>
+    </div>
+
+    <script>
+        function openPopup(popupId) {
+            document.getElementById(popupId).style.display = "block";
+            document.getElementById("overlay" + popupId.replace("popup", "")).style.display = "block";
+            if (popupId === "popup2") {
+                setTimeout(() => closePopup(popupId), 5000); // 5000 milisegundos 
+            }
+        }
+
+        function closePopup(popupId) {
+            document.getElementById(popupId).style.display = "none";
+            document.getElementById("overlay" + popupId.replace("popup", "")).style.display = "none";
+        }
+    </script>
+</body>
+</html>

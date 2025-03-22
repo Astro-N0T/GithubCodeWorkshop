@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+                JavaScript Test 2 - buttons, ids
+        </title>
+        <script>
+                alert("First alert : I am writing in JS! ");
+        </script>
+    </head>
+    <body id="demo4">
+        <h3>Simple JS demo</h3>
+        <p id="demo1">
+            JavaScript reacts to events, for instance to a clicking of a button.
+            JavaScript reacts to events, for instance to a clicking of a button.
+            JavaScript reacts to events, for instance to a clicking of a button.
+        </p>
+        <button onclick="myFunction1()">Click Me</button>
+
+        <p id="demo2">
+            <b> We can apply JS to change the style of HTML elements </b>
+        </p>
+        <button onclick="myFunction2()">Change Color</button>
+
+        <p id="demo3">
+            <b> Changing text format: background colour </b>
+        </p>
+        <button onclick="myFunction3()">Change Background</button>
+
+        <p>
+            <b> Changing text format: background image </b>
+        </p>        
+        <button onclick="myFunction4()">Change Body Background</button>
+
+        <script>
+                document.write("<br/> Introdução à linguagem JS");
+                document.write("<p><b> This is a paragraph using HTML formatting text tags </b></p>")
+                function myFunction1()
+                {
+                    document.getElementById("demo1").innerHTML = "<h2> I am programming in JS! </h2>"
+                }
+                
+                function myFunction2()
+                {
+                    x = document.getElementById("demo2");
+                    x.style.color="purple";
+                }
+                
+                function myFunction3()
+                {
+                    y = document.getElementById("demo3");
+                    y.style.backgroundColor="orange";
+                    document.getElementById("demo3").style.color = "green";
+                }
+                
+                function myFunction4()
+                {
+                    document.body.style.backgroundImage = "url('https://2.bp.blogspot.com/-cNhjFPAH9ps/WWv1ozDyVaI/AAAAAAAACJ0/g8QQYrUzBXo0Q1jXHMI3ssHXqXn6J-uaACLcBGAs/s2560/papeldeparede-planetas-wallhaven-537244.jpg')";
+                }
+        </script> 
+    </body>
+</html>

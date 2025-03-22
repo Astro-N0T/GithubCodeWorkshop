@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript Test 3 - array, colour</title>
+        <script>
+            var arraySize = parseInt(prompt("Definir tamanho do array:", "5"));
+            if (isNaN(arraySize) || arraySize <= 0) arraySize = 5; // Valor padrão se inválido
+            var colors = [];
+
+            for (let i = 0; i < arraySize; i++) {
+                let color = prompt(`Digite a cor para a posição ${i + 1}:`);
+                color = color ? color.trim().toLowerCase() : "default";
+                colors.push(color);
+            }
+
+            document.write("<br/><br/> Array de cores: " + colors.join(", ") + "<br/> Tamanho: " + colors.length + " cores");
+        </script>
+    </head>
+    <body id="demo4">
+        <b> Changing document background color </b>
+
+        <label>Define color: 
+            <select id="colorSelect" onchange="changeBackground()">
+                <option value="">Selecione uma cor</option>
+            </select>
+        </label>
+        <div id="buttonsContainer"></div>
+        <input type="text" id="customColor" placeholder="Custom color">
+        <button onclick="changeBackground(document.getElementById('customColor').value)">Apply Custom</button>
+
+        <script>
+            document.write("<br/> Introdução à linguagem JS");
+            document.write("<p><b> This is a paragraph using HTML formatting text tags </b></p>");
+
+            function updateDropdown() {
+                let select = document.getElementById("colorSelect");
+                select.innerHTML = "<option value=''>Selecione uma cor</option>";
+                colors.forEach(color => {
+                    let option = document.createElement("option");
+                    option.value = color;
+                    option.text = color;
+                    select.appendChild(option);
+                });
+            }
+
+            // Criar botões dinamicamente com base no tamanho do array
+            function createButtons() {
+                let container = document.getElementById("buttonsContainer");
+                container.innerHTML = ""; // Limpa botões anteriores
+                for (let i = 0; i < colors.length; i++) {
+                    let button = document.createElement("button");
+                    button.textContent = `cor ${i + 1}`;
+                    button.onclick = function() { changeBackground(colors[i]); };
+                    container.appendChild(button);
+                }
+            }
+
+            function myFunction1() {
+                document.getElementById("demo1").innerHTML = "<h2> I am programming in JS! </h2>";
+            }
+
+            function myFunction2() {
+                x = document.getElementById("demo2");
+                x.style.color = "purple";
+            }
+
+            function myFunction3() {
+                y = document.getElementById("demo3");
+                y.style.backgroundColor = "orange";
+                document.getElementById("demo3").style.color = "green";
+            }
+
+            function myFunction4() {
+                document.body.style.backgroundImage = "url('https://2.bp.blogspot.com/-cNhjFPAH9ps/WWv1ozDyVaI/AAAAAAAACJ0/g8QQYrUzBXo0Q1jXHMI3ssHXqXn6J-uaACLcBGAs/s2560/papeldeparede-planetas-wallhaven-537244.jpg')";
+            }
+
+            function changeBackground(color) {
+                if (!color) {
+                    color = document.getElementById("colorSelect").value;
+                }
+                document.body.style.backgroundColor = color;
+                document.body.style.backgroundImage = ""; 
+            }
+
+            updateDropdown();
+            createButtons();
+            // acrescentar colour randomizer button
+            
+        </script>
+    </body>
+</html>
+
